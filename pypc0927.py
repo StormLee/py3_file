@@ -11,9 +11,11 @@ import requests
 def getHTMLText(url):
     try:
         r = requests.get(url,timeout = 30)
+        #200正常
         r.raise_for_status()
+        #网页编码的正常解析
         r.encoding = r.apparent_encoding
-        #用于
+        #用于写入文本文件
         with open('D:\\py3_file\\\pypc\\yb21.txt','wt') as f:
             f.write(r.text)
         return r.text
